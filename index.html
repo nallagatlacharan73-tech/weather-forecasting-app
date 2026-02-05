@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern, responsive weather application providing real-time weather updates.">
+    <title>SkyCast | Pro Weather</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header / Search Section -->
+        <header class="search-section">
+            <h1 class="logo">SkyCast</h1>
+            <div class="search-bar">
+                <input type="text" id="city-input" placeholder="Search city..." autocomplete="off">
+                <button id="search-btn" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+            <p id="error-message" class="error-msg hidden"></p>
+        </header>
+
+        <!-- Main Content -->
+        <main id="weather-display" class="weather-content hidden">
+            <!-- Current Weather Card -->
+            <div class="current-weather">
+                <div class="weather-header">
+                    <h2 id="city-name">--</h2>
+                    <p id="date-time">--</p>
+                </div>
+                
+                <div class="weather-main">
+                    <div class="condition-icon">
+                        <i id="weather-icon" class="fa-solid fa-cloud"></i>
+                    </div>
+                    <div class="temperature">
+                        <span id="temp-value">--</span><span class="unit">°C</span>
+                    </div>
+                    <p id="weather-desc" class="condition-text">--</p>
+                </div>
+            </div>
+
+            <!-- Weather Details Grid -->
+            <div class="weather-details">
+                <div class="detail-card">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div>
+                        <p class="label">Humidity</p>
+                        <p id="humidity" class="value">--%</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-solid fa-wind"></i>
+                    <div>
+                        <p class="label">Wind Speed</p>
+                        <p id="wind-speed" class="value">-- km/h</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-solid fa-eye"></i>
+                    <div>
+                        <p class="label">Visibility</p>
+                        <p id="visibility" class="value">-- km</p>
+                    </div>
+                </div>
+                <!-- Added Pressure for grid balance -->
+                <div class="detail-card">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <div>
+                        <p class="label">Pressure</p>
+                        <p id="pressure" class="value">-- hPa</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="loading-container hidden">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Initial Placeholder State -->
+        <div id="initial-state" class="initial-message">
+            <i class="fa-solid fa-cloud-sun-rain"></i>
+            <h2>Weather Forecast</h2>
+            <p>Enter a city name to get the latest weather updates.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
